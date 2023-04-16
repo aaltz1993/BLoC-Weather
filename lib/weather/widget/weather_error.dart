@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-class WeatherLoading extends StatelessWidget {
-  const WeatherLoading({super.key});
+class WeatherError extends StatelessWidget {
+  const WeatherError({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -10,15 +10,11 @@ class WeatherLoading extends StatelessWidget {
     return Column(
       mainAxisSize: MainAxisSize.min,
       children: [
-        const Text('⛅', style: TextStyle(fontSize: 64)),
+        const Text('🙈', style: TextStyle(fontSize: 64)),
         Text(
-          'Loading Weather...',
+          'Something went wrong!',
           style: theme.textTheme.headlineSmall,
         ),
-        const Padding(
-          padding: EdgeInsets.all(16.0),
-          child: CircularProgressIndicator(),
-        )
       ],
     );
   }

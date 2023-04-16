@@ -13,8 +13,10 @@ class OpenMeteoApiClient {
   static const _geocodingBaseURL = 'geocoding-api.open-meteo.com';
 
   Future<Location> searchLocation(String query) async {
-    final request = Uri.https(
-        _geocodingBaseURL, '/v1/search', {'name': query, 'count': '1'});
+    final request = Uri.https(_geocodingBaseURL, '/v1/search', {
+      'name': query,
+      'count': '1',
+    });
 
     final response = await _httpClient.get(request);
 
@@ -33,12 +35,14 @@ class OpenMeteoApiClient {
     return Location.fromJson(results.first as Map<String, dynamic>);
   }
 
-  Future<Weather> getWeather(
-      {required double latitude, required double longitude}) async {
+  Future<Weather> getWeather({
+    required double latitude,
+    required double longitude,
+  }) async {
     final request = Uri.https(_weatherBaseURL, 'v1/forecast', {
-      'latitude': latitude,
-      'longitude': longitude,
-      'current_weather': 'true'
+      'latitude': '$latitude',
+      'longitude': '$longitude',
+      'current_weather': 'true',
     });
 
     final response = await _httpClient.get(request);
