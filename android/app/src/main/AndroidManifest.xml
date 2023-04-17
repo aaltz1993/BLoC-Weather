@@ -1,7 +1,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="space.clouds.bloc_weather">
    <application
-        android:label="bloc_weather"
+        android:label="BLoC Weather"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
         <activity

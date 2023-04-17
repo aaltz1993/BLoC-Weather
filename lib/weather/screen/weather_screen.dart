@@ -1,3 +1,5 @@
+import 'package:bloc_weather/search/search.dart';
+import 'package:bloc_weather/settings/screen/settings_screen.dart';
 import 'package:bloc_weather/theme/theme.dart';
 import 'package:bloc_weather/weather/weather.dart';
 import 'package:flutter/material.dart';
@@ -32,7 +34,13 @@ class _WeatherViewState extends State<WeatherView> {
         actions: [
           IconButton(
             icon: const Icon(Icons.settings),
-            onPressed: () {},
+            onPressed: () {
+              Navigator.of(context).push(
+                SettingsScreen.route(
+                  context.read<WeatherCubit>(),
+                ),
+              );
+            },
           )
         ],
       ),
@@ -69,7 +77,11 @@ class _WeatherViewState extends State<WeatherView> {
           semanticLabel: 'Search',
         ),
         onPressed: () async {
-          await context.read<WeatherCubit>().fetchWeather("Busan");
+          final city = await Navigator.of(context).push(SearchScreen.route());
+
+          if (!mounted) return;
+
+          await context.read<WeatherCubit>().fetchWeather(city);
         },
       ),
     );

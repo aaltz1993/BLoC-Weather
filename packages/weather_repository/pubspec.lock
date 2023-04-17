@@ -319,7 +319,7 @@ packages:
       path: "../open_meteo_api"
       relative: true
     source: path
-    version: "0.0.1"
+    version: "1.0.0+1"
   package_config:
     dependency: transitive
     description:
