@@ -6,3 +6,4 @@ analyzer:
 linter:
   rules:
     public_member_api_docs: false
+    unnecessary_library_directive: false
